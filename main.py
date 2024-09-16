@@ -10,7 +10,8 @@ state = {"bushes": game_field.bush_spread(),
          "game_running": True,
          "soldier_location": [0, 0],
          "soldier_feet_location": [],
-         "game_field": game_field.create()
+         "game_field": game_field.create(),
+         "show_mines": False
          }
 
 
@@ -22,8 +23,12 @@ def main():
     time.sleep(1)
     while state["game_running"]:
         user_events()
-
-        screen.draw_game(state)
+        if state["show_mines"]:
+            screen.show_mines(state)
+            state["show_mines"] = False
+            time.sleep(1)
+        else:
+            screen.draw_game(state)
 
         pygame.display.flip()
         soldier.is_eliminated(state)
@@ -39,6 +44,9 @@ def user_events():
             pygame.quit()
 
         if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                print("enter")
+                state["show_mines"] = True
 
             if event.key == pygame.K_UP and state["soldier_location"][1] > 0:
                 # print("Key UP has been pressed")

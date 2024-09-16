@@ -33,6 +33,10 @@ START_COLOR = (0, 0, 0)
 START_LOCATION = \
     (0.2 * SCREEN_WIDTH, SCREEN_HEIGHT / 2 - (START_FONT_SIZE / 2))
 
+NIGHT_COLOR = (6, 36, 5)
+
+
+
 FLAG_IMAGE = pygame.image.load("flag.png")
 FLAG_IMAGE = pygame.transform.scale(FLAG_IMAGE, (FLAG_WIDTH * FRAME_WIDTH, FLAG_HEIGHT * FRAME_HEIGHT))
 
