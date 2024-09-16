@@ -16,8 +16,6 @@ SOLDIER_Y_LENGTH = SOLDIER_HEIGHT * FRAME_HEIGHT
 FLAG_HEIGHT = 4
 FLAG_WIDTH = 4
 
-
-
 MINE_WIDTH = 3
 MINE_HEIGHT = 1
 
@@ -37,8 +35,6 @@ NIGHT_COLOR = (6, 36, 5)
 
 LOST_MASSAGE = "you lost"
 WON_MASSAGE = "you won"
-
-
 
 FLAG_IMAGE = pygame.image.load("flag.png")
 FLAG_IMAGE = pygame.transform.scale(FLAG_IMAGE, (FLAG_WIDTH * FRAME_WIDTH, FLAG_HEIGHT * FRAME_HEIGHT))

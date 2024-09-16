@@ -37,8 +37,8 @@ def draw_bushes(bushes):
 
 
 def draw_flag():
-    flag = consts.FLAG_IMAGE.get_rect(topleft=(consts.SCREEN_WIDTH - consts.FLAG_WIDTH * consts.FRAME_WIDTH - 100,
-                                               consts.SCREEN_HEIGHT - consts.FLAG_HEIGHT * consts.FLAG_WIDTH - 300))
+    flag = consts.FLAG_IMAGE.get_rect(topleft=(consts.SCREEN_WIDTH - consts.FLAG_WIDTH * consts.FRAME_WIDTH ,
+                                               consts.SCREEN_HEIGHT - consts.FLAG_HEIGHT * consts.FRAME_HEIGHT))
     screen.blit(consts.FLAG_IMAGE, flag)
 
 
@@ -60,6 +60,7 @@ def draw_mines(mines):
     for mine in mines:
         mine_img = consts.MINE_IMAGE.get_rect(topleft=(mine[0] * consts.FRAME_WIDTH, mine[1] * consts.FRAME_HEIGHT))
         screen.blit(consts.MINE_IMAGE, mine_img)
+
 
 def show_mines(game_state):
     screen.fill(consts.NIGHT_COLOR)
