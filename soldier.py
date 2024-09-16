@@ -14,7 +14,7 @@ def soldier_feet_cords(soldier):
 def is_eliminated(state):
     x = soldier_feet_cords(state["soldier_location"])
     for feet in x:
-        if state["game_field"][feet[0]][feet[1]] == "mine":
+        if state["game_field"][feet[1]][feet[0]] == "mine":
             return True
     return False
 

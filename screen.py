@@ -42,13 +42,21 @@ def draw_flag():
     screen.blit(consts.FLAG_IMAGE, flag)
 
 
+def print_lost():
+    draw_message(consts.LOST_MASSAGE, consts.START_FONT_SIZE,
+                 consts.START_COLOR, consts.START_LOCATION)
+    pygame.display.flip()
+    time.sleep(1)
+
+# def print_won():
+
 
 def draw_game(game_state):
     screen.fill(consts.BACKGROUND_COLOR)
-
     draw_bushes(game_state["bushes"])
     draw_soldier(game_state["soldier_location"])
     draw_flag()
+    pygame.display.flip()
 
 def draw_grid():
     for x in range(0, consts.SCREEN_WIDTH, consts.FRAME_WIDTH):
@@ -67,12 +75,9 @@ def show_mines(game_state):
     draw_grid()
     draw_mines(game_state["mines"])
     draw_night_soldier(game_state["soldier_location"])
+    pygame.display.flip()
 
 
 
-def print_lost_and_exit():
-    draw_message(consts.LOST_MASSAGE, consts.START_FONT_SIZE,
-                 consts.START_COLOR, consts.START_LOCATION)
-    time.sleep(1)
-    pygame.quit()
+
 

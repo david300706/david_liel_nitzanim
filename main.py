@@ -29,6 +29,10 @@ def main():
 
     while state["game_running"]:
         user_events()
+        if state["is_losing"]:
+            screen.print_lost()
+            state["game_running"] = False
+
         if state["show_mines"]:
             screen.show_mines(state)
             state["show_mines"] = False
@@ -36,23 +40,23 @@ def main():
         else:
             screen.draw_game(state)
 
-        pygame.display.flip()
-        soldier.is_eliminated(state)
-        if soldier.is_eliminated(state):
-            state["is_losing"] = True
-            screen.print_lost_and_exit()
+
+
+
+        state["is_losing"] = soldier.is_eliminated(state)
+
 
         soldier.soldier_feet_cords(state["soldier_location"])
 
 
 def user_events():
+    pygame.init()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RETURN:
-                print("enter")
                 state["show_mines"] = True
 
             if event.key == pygame.K_UP and state["soldier_location"][1] > 0:
