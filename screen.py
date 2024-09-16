@@ -20,7 +20,7 @@ def draw_start_massage():
 
 
 def draw_soldier(location):
-    soldier = consts.SOLDIER_IMAGE.get_rect(topleft=location)
+    soldier = consts.SOLDIER_IMAGE.get_rect(topleft=(location[0] * consts.FRAME_WIDTH, location[1] * consts.FRAME_HEIGHT))
     screen.blit(consts.SOLDIER_IMAGE, soldier)
 
 
@@ -31,9 +31,9 @@ def draw_bushes(bushes):
 
 
 def draw_flag():
-    flag = consts.SOLDIER_IMAGE.get_rect(topleft=(consts.FLAG_WIDTH * consts.FRAME_WIDTH,
-                                                  consts.FLAG_HEIGHT * consts.FLAG_WIDTH))
-    screen.blit(consts.SOLDIER_IMAGE, flag)
+    flag = consts.FLAG_IMAGE.get_rect(topleft=(consts.SCREEN_WIDTH - consts.FLAG_WIDTH * consts.FRAME_WIDTH - 100,
+                                               consts.SCREEN_HEIGHT - consts.FLAG_HEIGHT * consts.FLAG_WIDTH - 300))
+    screen.blit(consts.FLAG_IMAGE, flag)
 
 
 def draw_game(game_state):
@@ -42,3 +42,10 @@ def draw_game(game_state):
     draw_bushes(game_state["bushes"])
     draw_soldier(game_state["soldier_location"])
     draw_flag()
+
+# def show_mines(game_state):
+
+
+
+
+
