@@ -21,16 +21,30 @@ MINE_HEIGHT = 1
 START_MESSAGE = "Welcome To The Flag Game, Have Fun!"
 
 
-
+GRASS_HEIGHT = 2
+GRASS_WIDTH = 2
 
 BACKGROUND_COLOR = (25, 115, 22)
 
+
 FLAG_IMAGE = pygame.image.load("flag.png").convert()
+FLAG_IMAGE = pygame.transform.scale(FLAG_IMAGE, (FLAG_WIDTH * FRAME_WIDTH, FLAG_HEIGHT * FRAME_HEIGHT))
+
 GRASS_IMAGE = pygame.image.load("grass.png").convert()
+GRASS_IMAGE = pygame.transform.scale(GRASS_IMAGE, (GRASS_WIDTH * FRAME_WIDTH, GRASS_HEIGHT * FRAME_HEIGHT))
+
 MINE_IMAGE = pygame.image.load("mine.png").convert()
+MINE_IMAGE = pygame.transform.scale(MINE_IMAGE, (MINE_WIDTH * FRAME_WIDTH, MINE_HEIGHT * FRAME_HEIGHT))
+
 SOLDIER_IMAGE = pygame.image.load("soldier.png").convert()
-SOLDIER_NIGHT_IMAGE = pygame.image.load("soldier_night.png").convert()
+SOLDIER_IMAGE = pygame.transform.scale(SOLDIER_IMAGE, (SOLDIER_WIDTH * FRAME_WIDTH, SOLDIER_HEIGHT * FRAME_HEIGHT))
+
+SOLDIER_NIGHT_IMAGE = pygame.image.load("soldier_nigth.png").convert()
+SOLDIER_NIGHT_IMAGE= pygame.transform.scale(SOLDIER_NIGHT_IMAGE, (SOLDIER_WIDTH * FRAME_WIDTH, SOLDIER_HEIGHT * FRAME_HEIGHT))
+
 EXPLOSION_IMAGE = pygame.image.load("explosion.png").convert()
+EXPLOSION_IMAGE = pygame.transform.scale(EXPLOSION_IMAGE, (3 * FRAME_WIDTH, 2 * FRAME_HEIGHT))
+
 
 
 
