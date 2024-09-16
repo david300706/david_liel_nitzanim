@@ -1,11 +1,12 @@
 import consts
 import soldier
-import screen
 import game_field
 import pygame
 import screen
-#game_field.find_bushes()
-state = {"bushes": [(0,0)],
+import time
+
+state = {"bushes":game_field.bush_spread(),
+         "showed_welcome_massage": False,
          "game_running": True,
          "soldier_location": (0, 0),
          }
@@ -14,35 +15,35 @@ state = {"bushes": [(0,0)],
 def main():
     pygame.init()
     user_events()
+    screen.draw_start_massage()
+    pygame.display.update()
+    time.sleep(3)
+    while state["game_running"]:
 
-    screen.draw_game(state)
+        user_events()
 
-    pygame.display.flip()
+        screen.draw_game(state)
+
+        pygame.display.flip()
 
 def user_events():
-    import sys
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
 
-    pygame.init()
+        if event.type == pygame.KEYDOWN:
 
-    while True:
+            if event.key == pygame.K_UP:
+                print("Key UP has been pressed")
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
+            if event.key == pygame.K_DOWN:
+                print("Key DOWN has been pressed")
 
-            if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RIGHT:
+                print("Key RIGHT has been pressed")
 
-                if event.key == pygame.K_UP:
-                    print("Key UP has been pressed")
-
-                if event.key == pygame.K_DOWN:
-                    print("Key DOWN has been pressed")
-
-                if event.key == pygame.K_RIGHT:
-                    print("Key RIGHT has been pressed")
-
-                if event.key == pygame.K_LEFT:
-                    print("Key LEFT has been pressed")
+            if event.key == pygame.K_LEFT:
+                print("Key LEFT has been pressed")
+user_events()
 
 main()
