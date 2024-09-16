@@ -42,7 +42,7 @@ def user_events():
                 print("Key UP has been pressed")
                 state["soldier_location"][1] -= 1
 
-            if event.key == pygame.K_DOWN and state["soldier_location"][1] < consts.GRASS_HEIGHT - 1:
+            if event.key == pygame.K_DOWN and state["soldier_location"][1] < consts.GRID_HEIGHT - 1:
                 print("Key DOWN has been pressed")
                 state["soldier_location"][1] += 1
 

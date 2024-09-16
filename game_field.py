@@ -13,7 +13,7 @@ def create():
         game_field_grid.append([])
         for col in range(consts.GRID_WIDTH):
             game_field_grid[row].append("SAFE")
-    mine_spread()
+    game_field_grid = mine_spread(game_field_grid)
     return game_field_grid
 
 
@@ -23,7 +23,8 @@ def find_bushes():
     pass
 
 
-def mine_spread():
+def mine_spread(game_field):
+    game_field_grid = game_field
     mine_amount = 0
     while mine_amount != 20:
         num1 = nd.randint(0, 24)
@@ -34,6 +35,7 @@ def mine_spread():
             game_field_grid[num1][num2 - 1] = "mine"
             game_field_grid[num1][num2 + 1] = "mine"
         mine_amount += 1
+    return game_field_grid
 
 
 def bush_spread():
@@ -46,5 +48,5 @@ def bush_spread():
 
 
 # mine_spread()
-for x in game_field_grid:
-    print(x)
+# for x in game_field_grid:
+#     print(x)
