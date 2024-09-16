@@ -29,13 +29,13 @@ def mine_spread(game_field):
     mine_amount = 0
     mines = []
     while mine_amount != 20:
-        num1 = nd.randint(3, 24)
-        num2 = nd.randint(2, 48)
-        while game_field_grid[num1][num2] != "mine" and game_field_grid[num1][num2 - 1] != "mine" and \
-                game_field_grid[num1][num2 + 1] != "mine":
-            game_field_grid[num1][num2] = "mine"
-            game_field_grid[num1][num2 - 1] = "mine"
-            game_field_grid[num1][num2 + 1] = "mine"
+        num1 = nd.randint(3, 48)
+        num2 = nd.randint(2, 24)
+        while game_field_grid[num2][num1] != "mine" and game_field_grid[num2][num1 -1] != "mine" and \
+                game_field_grid[num2][num1 + 1] != "mine":
+            game_field_grid[num2][num1] = "mine"
+            game_field_grid[num2][num1 - 1] = "mine"
+            game_field_grid[num2][num1 + 1] = "mine"
             mines.append((num1, num2))
         mine_amount += 1
     return game_field_grid, mines

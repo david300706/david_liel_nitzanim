@@ -21,7 +21,7 @@ def main():
     pygame.init()
 
     state["game_field"], state["mines"] = game_field.create()
-
+    print(state["mines"])
     user_events()
     screen.draw_start_massage()
     pygame.display.update()
