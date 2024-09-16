@@ -22,7 +22,7 @@ def is_eliminated(state):
 def is_winning(state):
     x = soldier_feet_cords(state["soldier_location"])
     for feet in x:
-        if feet[0] == consts.SCREEN_WIDTH - consts.FLAG_WIDTH * consts.FRAME_WIDTH and \
-                feet[1] == consts.SCREEN_HEIGHT - consts.FLAG_HEIGHT * consts.FRAME_HEIGHT:
+        if feet[0] >= consts.GRID_WIDTH - consts.FLAG_WIDTH and \
+                feet[1] >= consts.GRID_HEIGHT - consts.FLAG_HEIGHT:
             return True
     return False

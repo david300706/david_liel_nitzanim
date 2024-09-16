@@ -40,11 +40,8 @@ def main():
         else:
             screen.draw_game(state)
 
-
-
-
         state["is_losing"] = soldier.is_eliminated(state)
-
+        state["is_winning"] = soldier.is_winning(state)
 
         soldier.soldier_feet_cords(state["soldier_location"])
 
