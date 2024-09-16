@@ -18,13 +18,20 @@ FLAG_WIDTH = 4
 
 MINE_WIDTH = 3
 MINE_HEIGHT = 1
-START_MESSAGE = "Welcome To The Flag Game, Have Fun!"
+
 
 
 GRASS_HEIGHT = 2
 GRASS_WIDTH = 2
 
 BACKGROUND_COLOR = (25, 115, 22)
+
+START_MESSAGE = "Welcome To The Flag Game, Have Fun!"
+FONT_NAME = "Calibri"
+START_FONT_SIZE = int(0.15 * SCREEN_WIDTH)
+START_COLOR = (0,0,0)
+START_LOCATION = \
+    (0.2 * SCREEN_WIDTH, SCREEN_HEIGHT / 2 - (START_FONT_SIZE / 2))
 
 
 FLAG_IMAGE = pygame.image.load("flag.png").convert()
@@ -45,7 +52,7 @@ SOLDIER_NIGHT_IMAGE= pygame.transform.scale(SOLDIER_NIGHT_IMAGE, (SOLDIER_WIDTH 
 EXPLOSION_IMAGE = pygame.image.load("explosion.png").convert()
 EXPLOSION_IMAGE = pygame.transform.scale(EXPLOSION_IMAGE, (3 * FRAME_WIDTH, 2 * FRAME_HEIGHT))
 
-D
+
 
 
 
