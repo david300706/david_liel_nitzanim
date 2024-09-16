@@ -1,5 +1,6 @@
 import consts
 import soldier
+import screen
 import game_field
 import pygame
 import screen
@@ -8,7 +9,7 @@ import time
 state = {"bushes":game_field.bush_spread(),
          "showed_welcome_massage": False,
          "game_running": True,
-         "soldier_location": (0, 0),
+         "soldier_location": [0, 0],
          }
 
 
@@ -25,6 +26,7 @@ def main():
         screen.draw_game(state)
 
         pygame.display.flip()
+
 
 def user_events():
     for event in pygame.event.get():
@@ -46,4 +48,6 @@ def user_events():
                 print("Key LEFT has been pressed")
 user_events()
 
+
+soldier.soldier_feet_cords(state["soldier_location"])
 main()
