@@ -46,10 +46,13 @@ def print_lost():
     draw_message(consts.LOST_MASSAGE, consts.START_FONT_SIZE,
                  consts.START_COLOR, consts.START_LOCATION)
     pygame.display.flip()
-    time.sleep(1)
+    time.sleep(3)
 
-# def print_won():
-
+def print_won():
+    draw_message(consts.WON_MASSAGE, consts.START_FONT_SIZE,
+                 consts.START_COLOR, consts.START_LOCATION)
+    pygame.display.flip()
+    time.sleep(3)
 
 def draw_game(game_state):
     screen.fill(consts.BACKGROUND_COLOR)

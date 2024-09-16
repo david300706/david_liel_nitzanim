@@ -24,13 +24,17 @@ def main():
     print(state["mines"])
     user_events()
     screen.draw_start_massage()
+
     pygame.display.update()
-    time.sleep(1)
+    time.sleep(3)
 
     while state["game_running"]:
         user_events()
         if state["is_losing"]:
             screen.print_lost()
+            state["game_running"] = False
+        elif state["is_winning"]:
+            screen.print_won()
             state["game_running"] = False
 
         if state["show_mines"]:
@@ -39,6 +43,9 @@ def main():
             time.sleep(1)
         else:
             screen.draw_game(state)
+
+
+
 
         state["is_losing"] = soldier.is_eliminated(state)
         state["is_winning"] = soldier.is_winning(state)
@@ -59,10 +66,10 @@ def user_events():
             if event.key == pygame.K_UP and state["soldier_location"][1] > 0:
                 state["soldier_location"][1] -= 1
 
-            if event.key == pygame.K_DOWN and state["soldier_location"][1] < consts.GRID_HEIGHT - 1:
+            if event.key == pygame.K_DOWN and state["soldier_location"][1] < consts.GRID_HEIGHT - consts.SOLDIER_HEIGHT:
                 state["soldier_location"][1] += 1
 
-            if event.key == pygame.K_RIGHT and state["soldier_location"][0] < consts.GRID_WIDTH - 1:
+            if event.key == pygame.K_RIGHT and state["soldier_location"][0] < consts.GRID_WIDTH - consts.SOLDIER_WIDTH:
                 state["soldier_location"][0] += 1
 
             if event.key == pygame.K_LEFT and state["soldier_location"][0] > 0:
