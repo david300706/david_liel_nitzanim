@@ -3,7 +3,7 @@ import time
 import consts
 
 screen = pygame.display.set_mode(
-    (1000, consts.SCREEN_HEIGHT))
+    (consts.SCREEN_WIDTH, consts.SCREEN_HEIGHT))
 
 
 def draw_message(message, font_size, color, location):
@@ -36,8 +36,8 @@ def draw_flag():
 
 def draw_game(game_state):
     screen.fill(consts.BACKGROUND_COLOR)
-    draw_start_massage()
-    time.sleep(3)
+    # draw_start_massage()
+    # time.sleep(3)
     draw_bushes(game_state["bushes"])
     draw_soldier(game_state["soldier_location"])
     draw_flag()

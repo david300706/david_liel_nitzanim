@@ -3,13 +3,21 @@ import soldier
 import screen
 import game_field
 import pygame
-
-state = {"bushes": game_field.find_bushes()}
+import screen
+#game_field.find_bushes()
+state = {"bushes": [(0,0)],
+         "game_running": True,
+         "soldier_location": (0, 0),
+         }
 
 
 def main():
-    pass
+    pygame.init()
+    user_events()
 
+    screen.draw_game(state)
+
+    pygame.display.flip()
 
 def user_events():
     import sys
@@ -36,3 +44,5 @@ def user_events():
 
                 if event.key == pygame.K_LEFT:
                     print("Key LEFT has been pressed")
+
+main()
