@@ -27,6 +27,7 @@ def find_bushes():
 def mine_spread(game_field):
     game_field_grid = game_field
     mine_amount = 0
+    mines = []
     while mine_amount != 20:
         num1 = nd.randint(0, 24)
         num2 = nd.randint(1, 48)
@@ -35,8 +36,9 @@ def mine_spread(game_field):
             game_field_grid[num1][num2] = "mine"
             game_field_grid[num1][num2 - 1] = "mine"
             game_field_grid[num1][num2 + 1] = "mine"
+            mines.append((num1, num2))
         mine_amount += 1
-    return game_field_grid
+    return game_field_grid, mines
 
 
 def bush_spread():

@@ -35,6 +35,9 @@ START_LOCATION = \
 
 NIGHT_COLOR = (6, 36, 5)
 
+LOST_MASSAGE = "you lost"
+WON_MASSAGE = "you won"
+
 
 
 FLAG_IMAGE = pygame.image.load("flag.png")
