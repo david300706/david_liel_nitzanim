@@ -11,7 +11,7 @@ import pandas as pd
 state = {"bushes": game_field.bush_spread(),
          "game_running": True,
          "soldier_location": [0, 0],
-         "soldier_feet_location": [],
+         "soldier_feet_location": [[],[]],
          "game_field": game_field.create(),
          "show_mines": False,
          "is_winning": False,
@@ -23,7 +23,7 @@ def main():
     pygame.init()
 
     state["game_field"], state["mines"] = game_field.create()
-    print(state["mines"])
+
     user_events()
     screen.draw_start_massage()
 
@@ -52,13 +52,6 @@ def main():
         soldier.soldier_feet_cords(state["soldier_location"])
 
 
-# import pandas as pd
-
-
-# creating df object with columns specified
-df = pd.DataFrame(state["game_field"])
-print(df.to_string())
-
 time_down = 0
 number_to_save = 0
 
@@ -70,8 +63,6 @@ def user_events():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
-
-        number = 0
 
         if event.type == pygame.KEYDOWN:
 
@@ -98,22 +89,24 @@ def user_events():
         elif event.type == pygame.KEYUP:
             if event.key in consts.keys_to_save:
                 time_to_release = pygame.time.get_ticks()
-                print((time_to_release - time_down) / 1000)
-                print(number_to_save)
-                print(time_down)
-                is_over_second = (time_to_release - time_down) / 1000
-                # print(number)
-                time_down = 0
-                number_to_save = 0
 
-                if is_over_second < 1:
+                is_over_second = (time_to_release - time_down) / 1000
+
+                if int(is_over_second) < 1:
                     database.create_df(number_to_save,state)
 
                 else:
-                    new_state = database.create_df(number_to_save,state)
-                    print(new_state)
-                    state = new_state
+                    state = database.retrieve_state(number_to_save, state)
 
+                time_down = 0
+                number_to_save = 0
 
 
 main()
+
+
+
+
+x = "True"
+
+print(eval(x))

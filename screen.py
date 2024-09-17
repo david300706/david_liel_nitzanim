@@ -33,7 +33,7 @@ def draw_night_soldier(location):
 
 def draw_bushes(bushes):
     for bush in bushes:
-        bush_img = consts.GRASS_IMAGE.get_rect(topleft=bush)
+        bush_img = consts.GRASS_IMAGE.get_rect(topleft=tuple(bush))
         screen.blit(consts.GRASS_IMAGE, bush_img)
 
 

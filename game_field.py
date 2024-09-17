@@ -6,8 +6,6 @@ import random as nd
 
 def create():
     game_field_grid = []
-
-    # global game_field_grid
     for row in range(consts.GRID_HEIGHT):
         game_field_grid.append([])
         for col in range(consts.GRID_WIDTH):
