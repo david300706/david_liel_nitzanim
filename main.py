@@ -1,4 +1,5 @@
 import consts
+import database
 import soldier
 import screen
 import game_field
@@ -65,10 +66,12 @@ def user_events():
     pygame.init()
     global time_down
     global number_to_save
+    global state
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
 
+        number = 0
 
         if event.type == pygame.KEYDOWN:
 
@@ -97,8 +100,20 @@ def user_events():
                 time_to_release = pygame.time.get_ticks()
                 print((time_to_release - time_down) / 1000)
                 print(number_to_save)
+                print(time_down)
+                is_over_second = (time_to_release - time_down) / 1000
+                # print(number)
                 time_down = 0
                 number_to_save = 0
+
+                if is_over_second > 1:
+                    database.state(number_to_save,state)
+
+                else:
+                    new_state = database.create_df(number_to_save,state)
+                    print(new_state)
+                    state = new_state
+
 
 
 main()
