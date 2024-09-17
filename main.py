@@ -65,6 +65,7 @@ def user_events():
         if event.type == pygame.QUIT:
             pygame.quit()
 
+        time_down = 0
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RETURN:
                 state["show_mines"] = True
@@ -81,5 +82,9 @@ def user_events():
             if event.key == pygame.K_LEFT and state["soldier_location"][0] > 0:
                 state["soldier_location"][0] -= 1
 
-
+        elif event.type == pygame.KEYUP:
+            if event.key in consts.keys_to_save:
+                time_to_release = pygame.time.get_ticks()
+                print(time_to_release - time_down)
+                print(number)
 main()
