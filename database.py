@@ -1,7 +1,7 @@
 import pandas as pd
 import game_field
 
-state1 = {"bushes": game_field.bush_spread(),
+state = {"bushes": game_field.bush_spread(),
          "game_running": True,
          "soldier_location": [0, 0],
          "soldier_feet_location": [],
@@ -11,8 +11,11 @@ state1 = {"bushes": game_field.bush_spread(),
          "is_losing": False,
          }
 
-state1["game_field"], state1["mines"] = game_field.create()
+state["game_field"], state["mines"] = game_field.create()
 # print(state)
+
+df = pd.DataFrame(list())
+df.to_csv("FlagGameSave.csv")
 
 
 def create_df(number, state):

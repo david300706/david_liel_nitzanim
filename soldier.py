@@ -1,5 +1,6 @@
 import game_field
 import consts
+import screen
 
 
 def soldier_feet_cords(soldier):

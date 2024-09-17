@@ -5,6 +5,7 @@ import game_field
 import pygame
 import screen
 import time
+import pandas as pd
 
 state = {"bushes": game_field.bush_spread(),
          "game_running": True,
@@ -16,11 +17,6 @@ state = {"bushes": game_field.bush_spread(),
          "is_losing": False,
          }
 
-# import pandas as pd
-# print(state)
-# x = pd.DataFrame(state)
-#
-# print(x)
 
 def main():
     pygame.init()
@@ -53,6 +49,14 @@ def main():
         state["is_winning"] = soldier.is_winning(state)
 
         soldier.soldier_feet_cords(state["soldier_location"])
+
+
+# import pandas as pd
+
+
+# creating df object with columns specified
+df = pd.DataFrame(state["game_field"])
+print(df.to_string())
 
 
 def user_events():

@@ -13,20 +13,21 @@ def draw_message(message, font_size, color, location):
     screen.blit(text_img, location)
 
 
-
 def draw_start_massage():
     screen.fill(consts.BACKGROUND_COLOR)
     draw_message(consts.START_MESSAGE, consts.START_FONT_SIZE,
                  consts.START_COLOR, consts.START_LOCATION)
 
 
-
 def draw_soldier(location):
-    soldier = consts.SOLDIER_IMAGE.get_rect(topleft=(location[0] * consts.FRAME_WIDTH, location[1] * consts.FRAME_HEIGHT))
+    soldier = consts.SOLDIER_IMAGE.get_rect(
+        topleft=(location[0] * consts.FRAME_WIDTH, location[1] * consts.FRAME_HEIGHT))
     screen.blit(consts.SOLDIER_IMAGE, soldier)
 
+
 def draw_night_soldier(location):
-    soldier = consts.SOLDIER_NIGHT_IMAGE.get_rect(topleft=(location[0] * consts.FRAME_WIDTH, location[1] * consts.FRAME_HEIGHT))
+    soldier = consts.SOLDIER_NIGHT_IMAGE.get_rect(
+        topleft=(location[0] * consts.FRAME_WIDTH, location[1] * consts.FRAME_HEIGHT))
     screen.blit(consts.SOLDIER_NIGHT_IMAGE, soldier)
 
 
@@ -37,7 +38,7 @@ def draw_bushes(bushes):
 
 
 def draw_flag():
-    flag = consts.FLAG_IMAGE.get_rect(topleft=(consts.SCREEN_WIDTH - consts.FLAG_WIDTH * consts.FRAME_WIDTH ,
+    flag = consts.FLAG_IMAGE.get_rect(topleft=(consts.SCREEN_WIDTH - consts.FLAG_WIDTH * consts.FRAME_WIDTH,
                                                consts.SCREEN_HEIGHT - consts.FLAG_HEIGHT * consts.FRAME_HEIGHT))
     screen.blit(consts.FLAG_IMAGE, flag)
 
@@ -48,11 +49,13 @@ def print_lost():
     pygame.display.flip()
     time.sleep(3)
 
+
 def print_won():
     draw_message(consts.WON_MASSAGE, consts.START_FONT_SIZE,
                  consts.START_COLOR, consts.START_LOCATION)
     pygame.display.flip()
     time.sleep(3)
+
 
 def draw_game(game_state):
     screen.fill(consts.BACKGROUND_COLOR)
@@ -61,11 +64,13 @@ def draw_game(game_state):
     draw_flag()
     pygame.display.flip()
 
+
 def draw_grid():
     for x in range(0, consts.SCREEN_WIDTH, consts.FRAME_WIDTH):
         for y in range(0, consts.SCREEN_HEIGHT, consts.FRAME_HEIGHT):
             rect = pygame.Rect(x, y, consts.FRAME_WIDTH, consts.FRAME_HEIGHT)
             pygame.draw.rect(screen, consts.START_COLOR, rect, 1)
+
 
 def draw_mines(mines):
     for mine in mines:
@@ -79,8 +84,3 @@ def show_mines(game_state):
     draw_mines(game_state["mines"])
     draw_night_soldier(game_state["soldier_location"])
     pygame.display.flip()
-
-
-
-
-
