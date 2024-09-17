@@ -54,3 +54,4 @@ SOLDIER_NIGHT_IMAGE = pygame.transform.scale(SOLDIER_NIGHT_IMAGE,
 
 EXPLOSION_IMAGE = pygame.image.load("explosion.png")
 EXPLOSION_IMAGE = pygame.transform.scale(EXPLOSION_IMAGE, (3 * FRAME_WIDTH, 2 * FRAME_HEIGHT))
+

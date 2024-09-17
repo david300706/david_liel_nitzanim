@@ -16,6 +16,11 @@ state = {"bushes": game_field.bush_spread(),
          "is_losing": False,
          }
 
+# import pandas as pd
+# print(state)
+# x = pd.DataFrame(state)
+#
+# print(x)
 
 def main():
     pygame.init()
@@ -26,7 +31,7 @@ def main():
     screen.draw_start_massage()
 
     pygame.display.update()
-    time.sleep(3)
+    time.sleep(1)
 
     while state["game_running"]:
         user_events()
@@ -43,9 +48,6 @@ def main():
             time.sleep(1)
         else:
             screen.draw_game(state)
-
-
-
 
         state["is_losing"] = soldier.is_eliminated(state)
         state["is_winning"] = soldier.is_winning(state)

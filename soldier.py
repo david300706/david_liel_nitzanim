@@ -3,18 +3,21 @@ import consts
 
 
 def soldier_feet_cords(soldier):
-    soldier_feet = [[0, 0], [-1, 0]]
-    soldier_feet[0][1] = soldier[1] + 2
-    soldier_feet[0][0] = soldier[0] + 1
+    soldier_feet = [[0, 0], [0, 0]]
+    soldier_feet[0][1] = soldier[1] + consts.SOLDIER_HEIGHT - 1
+    soldier_feet[0][0] = soldier[0]
     soldier_feet[1][0] = soldier[0] + 1
-    soldier_feet[1][1] = soldier[1] + 2
+    soldier_feet[1][1] = soldier[1] + consts.SOLDIER_HEIGHT - 1
     return soldier_feet
 
 
 def is_eliminated(state):
     x = soldier_feet_cords(state["soldier_location"])
+    # print(state["game_field"])
     for feet in x:
+        # print(feet)
         if state["game_field"][feet[1]][feet[0]] == "mine":
+            # print(state["game_field"][feet[1]])
             return True
     return False
 

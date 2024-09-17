@@ -69,7 +69,7 @@ def draw_grid():
 
 def draw_mines(mines):
     for mine in mines:
-        mine_img = consts.MINE_IMAGE.get_rect(topleft=(mine[0] * consts.FRAME_WIDTH, mine[1] * consts.FRAME_HEIGHT))
+        mine_img = consts.MINE_IMAGE.get_rect(topleft=((mine[0] - 1) * consts.FRAME_WIDTH, mine[1] * consts.FRAME_HEIGHT))
         screen.blit(consts.MINE_IMAGE, mine_img)
 
 
