@@ -13,17 +13,18 @@ def draw_message(message, font_size, color, location):
     screen.blit(text_img, location)
 
 
+
 def draw_start_massage():
     screen.fill(consts.BACKGROUND_COLOR)
     draw_message(consts.START_MESSAGE, consts.START_FONT_SIZE,
                  consts.START_COLOR, consts.START_LOCATION)
 
 
+
 def draw_soldier(location):
     soldier = consts.SOLDIER_IMAGE.get_rect(
         topleft=(location[0] * consts.FRAME_WIDTH, location[1] * consts.FRAME_HEIGHT))
     screen.blit(consts.SOLDIER_IMAGE, soldier)
-
 
 def draw_night_soldier(location):
     soldier = consts.SOLDIER_NIGHT_IMAGE.get_rect(
@@ -74,7 +75,8 @@ def draw_grid():
 
 def draw_mines(mines):
     for mine in mines:
-        mine_img = consts.MINE_IMAGE.get_rect(topleft=((mine[0] - 1) * consts.FRAME_WIDTH, mine[1] * consts.FRAME_HEIGHT))
+        mine_img = consts.MINE_IMAGE.get_rect(
+            topleft=((mine[0] - 1) * consts.FRAME_WIDTH, mine[1] * consts.FRAME_HEIGHT))
         screen.blit(consts.MINE_IMAGE, mine_img)
 
 
@@ -84,3 +86,9 @@ def show_mines(game_state):
     draw_mines(game_state["mines"])
     draw_night_soldier(game_state["soldier_location"])
     pygame.display.flip()
+
+
+def draw_guard(location):
+    guard = consts.GUARD_IMAGE.get_rect(
+        topleft=(location[0], location[1] * consts.FRAME_HEIGHT))
+    screen.blit(consts.GUARD_IMAGE, guard)

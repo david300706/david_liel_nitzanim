@@ -65,3 +65,7 @@ keys_to_save = {pygame.K_1: 1,
                 pygame.K_7: 7,
                 pygame.K_8: 8,
                 pygame.K_9: 9}
+
+
+GUARD_IMAGE = pygame.image.load("soldier (2).png")
+GUARD_IMAGE = pygame.transform.scale(GUARD_IMAGE, (GUARD_WIDTH * FRAME_WIDTH, GUARD_HEIGHT * FRAME_HEIGHT))
