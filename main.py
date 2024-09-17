@@ -58,15 +58,19 @@ def main():
 df = pd.DataFrame(state["game_field"])
 print(df.to_string())
 
+time_down = 0
 
 def user_events():
     pygame.init()
+    global time_down
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
 
-        time_down = 0
+        number = 0
+
         if event.type == pygame.KEYDOWN:
+
             if event.key == pygame.K_RETURN:
                 state["show_mines"] = True
 
@@ -82,9 +86,16 @@ def user_events():
             if event.key == pygame.K_LEFT and state["soldier_location"][0] > 0:
                 state["soldier_location"][0] -= 1
 
+            if event.key in consts.keys_to_save:
+                time_down = pygame.time.get_ticks()
+
         elif event.type == pygame.KEYUP:
             if event.key in consts.keys_to_save:
                 time_to_release = pygame.time.get_ticks()
-                print(time_to_release - time_down)
-                print(number)
+                print(time_down)
+                print((time_to_release - time_down) / 1000)
+                # print(number)
+                time_down = 0
+
+
 main()
