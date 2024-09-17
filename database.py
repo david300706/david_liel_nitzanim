@@ -13,14 +13,6 @@ def create_df(number, state):
     df.to_csv("FlagGameSave.csv")
 
 
-def return_to_list(string):
-    list = []
-    for i in range(len(string)):
-        if string[i] == "]":
-            list.append("".join(string[1:i]))
-    return list
-
-
 def retrieve_state(number, state):
     df = pd.read_csv('FlagGameSave.csv')
 

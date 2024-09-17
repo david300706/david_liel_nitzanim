@@ -63,6 +63,7 @@ def draw_game(game_state):
     draw_soldier(game_state["soldier_location"])
     draw_flag()
     draw_guard(game_state["guard_location"])
+    # draw_teleports(game_state["teleports"])
     pygame.display.flip()
 
 
@@ -85,6 +86,7 @@ def show_mines(game_state):
     draw_grid()
     draw_mines(game_state["mines"])
     draw_night_soldier(game_state["soldier_location"])
+    draw_teleports(game_state["teleports"])
     pygame.display.flip()
 
 
@@ -92,6 +94,13 @@ def draw_guard(location):
     guard = consts.GUARD_IMAGE.get_rect(
         topleft=(location[0] * consts.FRAME_WIDTH, location[1] * consts.FRAME_HEIGHT))
     screen.blit(consts.GUARD_IMAGE, guard)
+
+
+def draw_teleports(teleports):
+    for tp in teleports:
+        tp_img = consts.TP_IMAGE.get_rect(
+            topleft=((tp[0] - 1) * consts.FRAME_WIDTH, tp[1] * consts.FRAME_HEIGHT))
+        screen.blit(consts.TP_IMAGE, tp_img)
 
 
 def draw_explo(location):

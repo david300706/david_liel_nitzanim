@@ -21,10 +21,8 @@ def soldier_feet_cords(soldier):
 
 
 def is_eliminated(state):
-    x = soldier_feet_cords(state["soldier_location"])
-    # print(state["game_field"])
-    for feet in x:
-        # print(feet)
+    legs = soldier_feet_cords(state["soldier_location"])
+    for feet in legs:
         if state["game_field"][feet[1]][feet[0]] == "mine":
             screen.draw_explo(state["soldier_location"])
             return True

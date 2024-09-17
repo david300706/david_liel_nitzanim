@@ -2,7 +2,7 @@ import consts
 import random as nd
 # import screen
 # import soldier
-
+import teleport
 
 def create():
     game_field_grid = []
@@ -10,8 +10,14 @@ def create():
         game_field_grid.append([])
         for col in range(consts.GRID_WIDTH):
             game_field_grid[row].append("SAFE")
-    game_field_grid = mine_spread(game_field_grid)
-    return game_field_grid
+    game_field_grid, mines = mine_spread(game_field_grid)
+
+    teleports = teleport.create_teleports(mines)
+    for tp in teleports:
+        game_field_grid[tp[1]][tp[0]] = "tp"
+        game_field_grid[tp[1]][tp[0] - 1] = "tp"
+        game_field_grid[tp[1]][tp[0] + 1] = "tp"
+    return game_field_grid, mines, teleports
 
 
 def mine_spread(game_field):
@@ -26,7 +32,7 @@ def mine_spread(game_field):
             game_field_grid[num2][num1] = "mine"
             game_field_grid[num2][num1 - 1] = "mine"
             game_field_grid[num2][num1 + 1] = "mine"
-            mines.append((num1, num2))
+            mines.append([num1, num2])
         mine_amount += 1
     return game_field_grid, mines
 

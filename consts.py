@@ -3,6 +3,7 @@ import pygame
 # pygame.init()
 GUARD_WIDTH = 2
 GUARD_HEIGHT = 3
+GUARD_START = [0, 11]
 SOLDIER_HEIGHT = 3
 SOLDIER_WIDTH = 2
 GRID_HEIGHT = 25
@@ -24,6 +25,10 @@ GRASS_HEIGHT = 2
 GRASS_WIDTH = 2
 
 AMOUNT_MINE = 20
+
+TELEPORT_HEIGHT = 1
+TELEPORT_WIDTH = 3
+TELEPORT_AMOUNT = 5
 
 BACKGROUND_COLOR = (25, 115, 22)
 
@@ -71,6 +76,9 @@ keys_to_save = {pygame.K_1: 1,
 
 GUARD_IMAGE = pygame.image.load("soldier (2).png")
 GUARD_IMAGE = pygame.transform.scale(GUARD_IMAGE, (GUARD_WIDTH * FRAME_WIDTH, GUARD_HEIGHT * FRAME_HEIGHT))
+
+TP_IMAGE = pygame.image.load("hole.png")
+TP_IMAGE = pygame.transform.scale(TP_IMAGE, (TELEPORT_WIDTH * FRAME_WIDTH, TELEPORT_HEIGHT * FRAME_HEIGHT))
 
 INJURY_IMAGE = pygame.image.load("injury.png")
 INJURY_IMAGE = pygame.transform.scale(INJURY_IMAGE, (2 * FRAME_WIDTH, 4 * FRAME_HEIGHT))

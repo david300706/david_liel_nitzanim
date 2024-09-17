@@ -2,20 +2,20 @@ import consts
 import database
 import guard
 import soldier
-# import screen
 import game_field
 import pygame
 import screen
 import time
-# import pandas as pd
+
+import teleport
 
 state = {"bushes": game_field.bush_spread(),
          "game_running": True,
          "soldier_location": [0, 0],
          "soldier_feet_location": [[], []],
-         "guard_location": [0, 11],
+         "guard_location": consts.GUARD_START,
          "guard_forward": False,
-         "game_field": game_field.create(),
+         "game_field": None,
          "show_mines": False,
          "is_winning": False,
          "is_losing": False,
@@ -26,8 +26,7 @@ state = {"bushes": game_field.bush_spread(),
 def main():
     pygame.init()
 
-    state["game_field"], state["mines"] = game_field.create()
-
+    state["game_field"], state["mines"], state["teleports"] = game_field.create()
     user_events()
     screen.draw_start_massage()
 
@@ -36,6 +35,14 @@ def main():
 
     while state["game_running"]:
         user_events()
+
+        is_touching, places = teleport.is_touching(state["soldier_location"], state["game_field"])
+        if is_touching:
+            if state["soldier_location"] not in places:
+                new_place = teleport.random_teleport(state["teleports"], places[0])
+                state["soldier_location"] = new_place
+
+
         if state["is_losing"] or state["is_eaten"]:
             screen.print_lost()
             state["game_running"] = False
