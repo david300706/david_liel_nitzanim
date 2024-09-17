@@ -56,7 +56,8 @@ SOLDIER_NIGHT_IMAGE = pygame.transform.scale(SOLDIER_NIGHT_IMAGE,
                                              (SOLDIER_WIDTH * FRAME_WIDTH, SOLDIER_HEIGHT * FRAME_HEIGHT))
 
 EXPLOSION_IMAGE = pygame.image.load("explosion.png")
-EXPLOSION_IMAGE = pygame.transform.scale(EXPLOSION_IMAGE, (3 * FRAME_WIDTH, 2 * FRAME_HEIGHT))
+EXPLOSION_IMAGE = pygame.transform.scale(EXPLOSION_IMAGE, (5 * FRAME_WIDTH, 5 * FRAME_HEIGHT))
+
 keys_to_save = {pygame.K_1: 1,
                 pygame.K_2: 2,
                 pygame.K_3: 3,
@@ -70,3 +71,7 @@ keys_to_save = {pygame.K_1: 1,
 
 GUARD_IMAGE = pygame.image.load("soldier (2).png")
 GUARD_IMAGE = pygame.transform.scale(GUARD_IMAGE, (GUARD_WIDTH * FRAME_WIDTH, GUARD_HEIGHT * FRAME_HEIGHT))
+
+INJURY_IMAGE = pygame.image.load("injury.png")
+INJURY_IMAGE = pygame.transform.scale(INJURY_IMAGE, (2 * FRAME_WIDTH, 4 * FRAME_HEIGHT))
+

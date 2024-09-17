@@ -19,6 +19,7 @@ state = {"bushes": game_field.bush_spread(),
          "show_mines": False,
          "is_winning": False,
          "is_losing": False,
+         "is_eaten": False
          }
 
 
@@ -35,7 +36,7 @@ def main():
 
     while state["game_running"]:
         user_events()
-        if state["is_losing"]:
+        if state["is_losing"] or state["is_eaten"]:
             screen.print_lost()
             state["game_running"] = False
         elif state["is_winning"]:
@@ -51,10 +52,12 @@ def main():
 
         state["is_losing"] = soldier.is_eliminated(state)
         state["is_winning"] = soldier.is_winning(state)
+        state["is_eaten"] = guard.guard_eat(state)
 
         soldier.soldier_feet_cords(state["soldier_location"])
         state["guard_location"], state["guard_forward"] = guard.guard_movement(state["guard_location"],
                                                                                state["guard_forward"])
+
 
 time_down = 0
 number_to_save = 0

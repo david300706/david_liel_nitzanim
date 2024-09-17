@@ -13,18 +13,17 @@ def draw_message(message, font_size, color, location):
     screen.blit(text_img, location)
 
 
-
 def draw_start_massage():
     screen.fill(consts.BACKGROUND_COLOR)
     draw_message(consts.START_MESSAGE, consts.START_FONT_SIZE,
                  consts.START_COLOR, consts.START_LOCATION)
 
 
-
 def draw_soldier(location):
     soldier = consts.SOLDIER_IMAGE.get_rect(
         topleft=(location[0] * consts.FRAME_WIDTH, location[1] * consts.FRAME_HEIGHT))
     screen.blit(consts.SOLDIER_IMAGE, soldier)
+
 
 def draw_night_soldier(location):
     soldier = consts.SOLDIER_NIGHT_IMAGE.get_rect(
@@ -67,7 +66,6 @@ def draw_game(game_state):
     pygame.display.flip()
 
 
-
 def draw_grid():
     for x in range(0, consts.SCREEN_WIDTH, consts.FRAME_WIDTH):
         for y in range(0, consts.SCREEN_HEIGHT, consts.FRAME_HEIGHT):
@@ -94,3 +92,15 @@ def draw_guard(location):
     guard = consts.GUARD_IMAGE.get_rect(
         topleft=(location[0] * consts.FRAME_WIDTH, location[1] * consts.FRAME_HEIGHT))
     screen.blit(consts.GUARD_IMAGE, guard)
+
+
+def draw_explo(location):
+    explo = consts.EXPLOSION_IMAGE.get_rect(
+        topleft=(location[0] * consts.FRAME_WIDTH, location[1] * consts.FRAME_HEIGHT))
+    screen.blit(consts.EXPLOSION_IMAGE, explo)
+
+
+def draw_injury(location):
+    injury = consts.INJURY_IMAGE.get_rect(
+        topleft=(location[0] * consts.FRAME_WIDTH, location[1] * consts.FRAME_HEIGHT))
+    screen.blit(consts.INJURY_IMAGE, injury)
