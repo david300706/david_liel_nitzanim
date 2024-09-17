@@ -59,15 +59,16 @@ df = pd.DataFrame(state["game_field"])
 print(df.to_string())
 
 time_down = 0
+number_to_save = 0
 
 def user_events():
     pygame.init()
     global time_down
+    global number_to_save
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
 
-        number = 0
 
         if event.type == pygame.KEYDOWN:
 
@@ -88,14 +89,16 @@ def user_events():
 
             if event.key in consts.keys_to_save:
                 time_down = pygame.time.get_ticks()
+                number_to_save = consts.keys_to_save.get(event.key)
+
 
         elif event.type == pygame.KEYUP:
             if event.key in consts.keys_to_save:
                 time_to_release = pygame.time.get_ticks()
-                print(time_down)
                 print((time_to_release - time_down) / 1000)
-                # print(number)
+                print(number_to_save)
                 time_down = 0
+                number_to_save = 0
 
 
 main()
