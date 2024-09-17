@@ -2,12 +2,12 @@ import consts
 import database
 import guard
 import soldier
-import screen
+# import screen
 import game_field
 import pygame
 import screen
 import time
-import pandas as pd
+# import pandas as pd
 
 state = {"bushes": game_field.bush_spread(),
          "game_running": True,
@@ -53,6 +53,7 @@ def main():
         state["is_losing"] = soldier.is_eliminated(state)
         state["is_winning"] = soldier.is_winning(state)
         state["is_eaten"] = guard.guard_eat(state)
+        soldier.get_soldier_body(state["soldier_location"])
 
         soldier.soldier_feet_cords(state["soldier_location"])
         state["guard_location"], state["guard_forward"] = guard.guard_movement(state["guard_location"],
