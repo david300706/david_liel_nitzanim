@@ -12,8 +12,9 @@ import pandas as pd
 state = {"bushes": game_field.bush_spread(),
          "game_running": True,
          "soldier_location": [0, 0],
-         "soldier_feet_location": [[],[]],
-         "guard location": [1, 11],
+         "soldier_feet_location": [[], []],
+         "guard_location": [0, 11],
+         "guard_forward": False,
          "game_field": game_field.create(),
          "show_mines": False,
          "is_winning": False,
@@ -33,7 +34,6 @@ def main():
     time.sleep(1)
 
     while state["game_running"]:
-        guard.guard_movement(state["guard location"])
         user_events()
         if state["is_losing"]:
             screen.print_lost()
@@ -53,10 +53,12 @@ def main():
         state["is_winning"] = soldier.is_winning(state)
 
         soldier.soldier_feet_cords(state["soldier_location"])
-
+        state["guard_location"], state["guard_forward"] = guard.guard_movement(state["guard_location"],
+                                                                               state["guard_forward"])
 
 time_down = 0
 number_to_save = 0
+
 
 def user_events():
     pygame.init()
@@ -96,7 +98,7 @@ def user_events():
                 is_over_second = (time_to_release - time_down) / 1000
 
                 if int(is_over_second) < 1:
-                    database.create_df(number_to_save,state)
+                    database.create_df(number_to_save, state)
 
                 else:
                     state = database.retrieve_state(number_to_save, state)

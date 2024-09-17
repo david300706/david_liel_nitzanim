@@ -1,7 +1,8 @@
 import pygame
 
 # pygame.init()
-
+GUARD_WIDTH = 2
+GUARD_HEIGHT = 3
 SOLDIER_HEIGHT = 3
 SOLDIER_WIDTH = 2
 GRID_HEIGHT = 25
