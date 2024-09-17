@@ -31,6 +31,7 @@ def mine_spread(game_field):
     return game_field_grid, mines
 
 
+
 def bush_spread():
     bush_cords = []
     for i in range(20):

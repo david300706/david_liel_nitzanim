@@ -3,6 +3,14 @@ import consts
 import screen
 
 
+def get_soldier_body(location):
+    body_cords2 = []
+    for i in range(location[1], location[1] + consts.SOLDIER_HEIGHT):
+        for j in range(location[0], location[0] + consts.SOLDIER_WIDTH):
+            body_cords2.append((j, i))
+    return body_cords2
+
+
 def soldier_feet_cords(soldier):
     soldier_feet = [[0, 0], [0, 0]]
     soldier_feet[0][1] = soldier[1] + consts.SOLDIER_HEIGHT - 1
