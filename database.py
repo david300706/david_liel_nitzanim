@@ -1,7 +1,7 @@
 import pandas as pd
 import game_field
 
-state = {"bushes": game_field.bush_spread(),
+state1 = {"bushes": game_field.bush_spread(),
          "game_running": True,
          "soldier_location": [0, 0],
          "soldier_feet_location": [],
@@ -11,25 +11,20 @@ state = {"bushes": game_field.bush_spread(),
          "is_losing": False,
          }
 
-state["game_field"], state["mines"] = game_field.create()
+state1["game_field"], state1["mines"] = game_field.create()
 # print(state)
 
 
-def create_df(state):
-    df = [state[i] for i in state.keys()]
-    print(df)
+def create_df(number, state):
+    state_list = [state[i] for i in state.keys()]
+    df = pd.DataFrame({number:state})
 
 
-    df = pd.DataFrame({1:df})
-# df[2] = df
-
-    for i in df:
-        print(df[i])
-
+def retrieve_state(number, state):
+    df = pd.read_csv('FlagGameSave.csv')
     df.to_dict()
-    df = df[1]
+    df = df[number]
 
-# state = {}
     count = 0
     for i in state.keys():
         state[i] = df[count]
