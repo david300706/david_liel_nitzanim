@@ -1,5 +1,6 @@
 import consts
 import database
+import guard
 import soldier
 import screen
 import game_field
@@ -12,6 +13,7 @@ state = {"bushes": game_field.bush_spread(),
          "game_running": True,
          "soldier_location": [0, 0],
          "soldier_feet_location": [[],[]],
+         "guard location": [1, 11],
          "game_field": game_field.create(),
          "show_mines": False,
          "is_winning": False,
@@ -31,6 +33,7 @@ def main():
     time.sleep(1)
 
     while state["game_running"]:
+        guard.guard_movement(state["guard location"])
         user_events()
         if state["is_losing"]:
             screen.print_lost()
@@ -103,10 +106,3 @@ def user_events():
 
 
 main()
-
-
-
-
-x = "True"
-
-print(eval(x))
