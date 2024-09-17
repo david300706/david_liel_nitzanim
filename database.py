@@ -12,18 +12,26 @@ state = {"bushes": game_field.bush_spread(),
          }
 
 state["game_field"], state["mines"] = game_field.create()
-
 # print(state)
-df = [state[i] for i in state.keys()]
-print(df)
-df = pd.DataFrame({1:df})
+
+
+def create_df(state):
+    df = [state[i] for i in state.keys()]
+    print(df)
+
+
+    df = pd.DataFrame({1:df})
 # df[2] = df
 
-for i in df:
-    print(df[i])
+    for i in df:
+        print(df[i])
 
-df.to_dict()
-df = df[1]
+    df.to_dict()
+    df = df[1]
 
-
-args = list(state.keys())
+# state = {}
+    count = 0
+    for i in state.keys():
+        state[i] = df[count]
+        count += 1
+    return state
