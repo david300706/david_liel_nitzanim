@@ -106,8 +106,8 @@ def user_events():
                 time_down = 0
                 number_to_save = 0
 
-                if is_over_second > 1:
-                    database.state(number_to_save,state)
+                if is_over_second < 1:
+                    database.create_df(number_to_save,state)
 
                 else:
                     new_state = database.create_df(number_to_save,state)

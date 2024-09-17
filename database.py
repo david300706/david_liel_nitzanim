@@ -17,7 +17,9 @@ def create_df(number, state):
 
 def retrieve_state(number, state):
     df = pd.read_csv('FlagGameSave.csv')
+    print(df)
     df.to_dict()
+    # print(df)
     df = df[number]
 
     count = 0
