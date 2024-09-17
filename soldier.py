@@ -18,7 +18,7 @@ def is_eliminated(state):
     for feet in x:
         # print(feet)
         if state["game_field"][feet[1]][feet[0]] == "mine":
-            # print(state["game_field"][feet[1]])
+            screen.draw_explo(state["soldier_location"])
             return True
     return False
 
