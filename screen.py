@@ -63,7 +63,9 @@ def draw_game(game_state):
     draw_bushes(game_state["bushes"])
     draw_soldier(game_state["soldier_location"])
     draw_flag()
+    draw_guard(game_state["guard_location"])
     pygame.display.flip()
+
 
 
 def draw_grid():
@@ -90,5 +92,5 @@ def show_mines(game_state):
 
 def draw_guard(location):
     guard = consts.GUARD_IMAGE.get_rect(
-        topleft=(location[0], location[1] * consts.FRAME_HEIGHT))
+        topleft=(location[0] * consts.FRAME_WIDTH, location[1] * consts.FRAME_HEIGHT))
     screen.blit(consts.GUARD_IMAGE, guard)

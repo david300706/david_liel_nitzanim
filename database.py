@@ -21,7 +21,6 @@ def return_to_list(string):
     return list
 
 
-
 def retrieve_state(number, state):
     df = pd.read_csv('FlagGameSave.csv')
 
